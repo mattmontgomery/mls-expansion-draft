@@ -20,7 +20,7 @@ module.exports = function() {
                 if(err) {
                     reject(err);
                 }
-                resolve(false);
+                resolve(obj);
             });
         });
     };

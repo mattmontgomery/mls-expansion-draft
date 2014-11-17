@@ -26,9 +26,6 @@ var Draft = function(selector, team){
         });
     };
     this.buildResults = function(data) {
-        $.each(data.players, function() {
-
-        });
     };
     this.submit = function() {
         var self = this;
@@ -44,6 +41,7 @@ var Draft = function(selector, team){
             $.when(this.sendData(data)).done(function(resp){
                 self.alert('Expansion draft list successfully sent', 'success');
                 self.buildResults(data);
+                self.$el.find('input[type="submit"]').prop('disabled',true);
             }).fail(function(resp) {
                 self.alert(resp.message, 'error');
             });
@@ -59,7 +57,7 @@ var Draft = function(selector, team){
         var dfd = $.Deferred();
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:1337/list',
+            url: 'https://mls-expansion-draft.herokuapp.com/list',
             data: JSON.stringify(data),
             withCredentials: true,
             success: function(resp) {
