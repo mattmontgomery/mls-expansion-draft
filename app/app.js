@@ -18,5 +18,5 @@ http.createServer(function (req, res) {
         res.statusCode = 404;
         res.end();
     }
-}).listen(1337);
+}).listen(80);
 

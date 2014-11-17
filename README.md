@@ -1,11 +1,11 @@
 mls-expansion-draft
 ===
 
-## Expected data
+## Expected POST data
 
 ```json
 {
-    "team": "RSL",
+    "team": "rsl",
     "list": [
         "Beckerman",
         "Rimando"
