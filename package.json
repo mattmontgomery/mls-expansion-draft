@@ -1,0 +1,23 @@
+{
+  "name": "mls-expansion-draft",
+  "version": "0.0.1",
+  "description": "An application for submitting expansion draft lists",
+  "repository": "",
+  "dependencies": {
+    "hogan.js": "^3.0.2",
+    "lodash": "^2.4.1",
+    "pg": "^3.6.3",
+    "dotenv": "^0.4.0",
+    "redis": "^0.12.1",
+    "cookies": "^0.5.0",
+    "bluebird": "^2.3.11"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.1",
+    "gulp-bower": "0.0.6",
+    "gulp-debug": "^0.3.0",
+    "gulp-jshint": "^1.6.3",
+    "gulp-develop-server": "^0.2.5",
+    "gulp-livereload": "^2.1.1"
+  }
+}
