@@ -9,8 +9,8 @@ router.addRoute('/list', new list());
 router.addRoute('/list/:team', new list());
 
 var http = require('http');
+var port = (process.env.PORT || 80);
 http.createServer(function (req, res) {
-//    var path = url.parse(req.url).pathname;
     var match = router.match(req.url);
     if(match) {
         match.fn(req, res, match);
@@ -18,5 +18,6 @@ http.createServer(function (req, res) {
         res.statusCode = 404;
         res.end();
     }
-}).listen(80);
+}).listen(port);
 
+console.log('HTTP server listening on port: ' + port );
