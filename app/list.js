@@ -81,17 +81,25 @@ module.exports = function() {
                     team = (_.isString(data.team) ? data.team : 'RSL').toLowerCase();
                 if(players.length > 11) {
                     players = false;
-                    this.respObj = {
-                        "status": "failure",
-                        "message": "Too many players submitted"
-                    };
+                    list.fetchPlayers(team).done(function(allPlayers) {
+                        response.statusCode = 400;
+                        self.respObj = {
+                            "status": "failure",
+                            "message": "Too many players submitted",
+                            "players": allPlayers
+                        };
+                        self.send();
+                    });
                 } else if(cookies.get('completed') == 'true' && !reset) {
-                    response.statusCode = 200;
-                    this.respObj = {
-                        "status": "failure",
-                        "message": "Already submitted"
-                    };
-                    this.send(response, respObj);
+                    list.fetchPlayers(team).done(function(allPlayers) {
+                        response.statusCode = 400;
+                        self.respObj = {
+                            "status": "failure",
+                            "message": "Already submitted",
+                            "players": allPlayers
+                        };
+                        self.send();
+                    });
                 } else {
                     cookies.set('players', JSON.stringify(players))
                         .set('submitted', true)
@@ -146,6 +154,7 @@ module.exports = function() {
             });
 
             req.on('end', function() {
+                console.log(req.method);
                 if(req.method === 'POST' || req.method === 'PUT') {
                     self.respond_post(data);
                 } else {
