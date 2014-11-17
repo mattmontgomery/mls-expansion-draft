@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>MLS Expansion Draft thingie</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <form id="draft-picker-container">
+            <div class="message"></div>
+            <div class="form"></div>
+            <div class="results"></div>
+            <input type="submit">
+        </form>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="expansion-draft.js"></script>
+        <script type="text/javascript">
+           var draft = new Draft('#draft-picker-container', 'rsl');
+        </script>
+        <style>
+            #draft-picker-container {
+                max-width: 300px;
+            }
+            #draft-picker-container .message:empty {
+                display: none;
+            }
+            #draft-picker-container .message.error {
+                background: #aa3344;
+                color: white;
+                padding: 1rem 2rem;
+                text-align: center;
+            }
+            #draft-picker-container .message.success {
+                background: #44aa33;
+                color: white;
+                padding: 1rem 2rem;
+                text-align: center;
+            }
+            #draft-picker-container .line-item .player-item {
+                display: block;
+                font-size: 11pt;
+                font-weight: 200;
+                padding: .5rem;
+                border: 1px solid #ccc;
+                margin: .5rem 0;
+                width: 100%;
+                max-width: 300px;
+
+            }
+            #draft-picker-container input[type="submit"] {
+                background: #528CE0;
+                color: white;
+                border: 0;
+                padding: 1rem 2rem;
+                font-family: 'Helvetica Neue', 'Arial';
+                font-size: 11pt;
+                text-transform: uppercase;
+            }
+        </style>
+    </body>
+</html>
