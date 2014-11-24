@@ -121,6 +121,12 @@ module.exports = function() {
                 response.statusCode = 400;
                 this.respObj.message = "Could not read data";
             }
+            this.respObj = {
+                "players": data.players,
+                "votes": data.votes
+            }
+            this.send();
+            return;
             list.canUpdate(ip, team).done(function(hasVoted) {
                 if(players && data && !hasVoted) {
                     var team = (_.isString(data.team) ? data.team : 'RSL').toLowerCase();

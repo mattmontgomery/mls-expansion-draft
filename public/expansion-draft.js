@@ -1,4 +1,5 @@
 var Draft = function(selector, team){
+    var $ = jQuery;
     this.$el = null;
     this.team = team;
     this.initialize = function(selector) {
