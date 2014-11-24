@@ -131,7 +131,7 @@ module.exports = function() {
                             "message": "Too many players submitted",
                         };
                         self.send();
-                    } else if(cookies.get('completed') == 'true') {
+                    } else if(cookies.get('completed') == 'true' && false) {
                         list.fetchData(team).done(function(allPlayers) {
                             response.statusCode = 400;
                             self.respObj = {
