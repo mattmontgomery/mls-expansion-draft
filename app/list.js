@@ -162,7 +162,7 @@ module.exports = function() {
                             self.send();
                         });
                     } else {
-                        list.fetchData(team).done(function(allPlayers) {
+                        list.fetchData(team).done(function(data) {
                             response.statusCode = 400;
                             self.respObj = {
                                 "status": "incomplete",
